@@ -1,30 +1,12 @@
-import smtplib, unittest
-from unittest.mock import Mock
-from send_inspiration import main
-import logging
+import os
+import smtplib
+import unittest
 
-mock = Mock()
-m = mock.Mock()
+from send_inspiration import send_email
 
-class send_inspiration(unittest.TestCase):
-    def set_up(self):
-        self.emails = []
-    
-    def test_get_contacts(self,*args):
-        for i in self.emails:
-            self.assertTrue(i == main(),'Incorrect')
-        s = 'katlego.malatjie@umuzi.org'
-        self.assertEqual(s.split(), ['katlego.malatjie@umuzi.org'])
-        with self.assertRaises(TypeError):
-            s.split(2)
-            self.assertEqual(len(s.emails), 2)
-            self.assertEqual(s.emails[0].frm, 'katlego.malatjie@umuzi.org')
-            self.assertEqual(s.emails[0].to, ['katlego.malatjie@umuzi.org'])
-            self.assertEqual(s.emails[0].msg, 'This is TEST')
-            self.assertEqual(m.get_contacts) == False
+EMAIL_TO = os.environ.get('EMAIL_TO')
 
-    def tear_down(self):
-        self.emails = None
-
-if __name__ == '__main__':
-    unittest.main()
+def test_send_email():
+    send_email_to(EMAIL_TO)
+    self.assertEmailSent(to=EMAIL_TO)
+    self.assertEqual(len(self.get_sent_messages()), 1)
