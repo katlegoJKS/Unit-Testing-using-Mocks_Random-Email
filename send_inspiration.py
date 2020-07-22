@@ -16,7 +16,7 @@ def send_email():
         inspirational_quote.sendmail(EMAIL_LOGIN, EMAIL_TO, 'Subject: So long.\n"The only true measure of success if the number of people you have helped" Ray Dalio')
         inspirational_quote.quit()
         return "Message successfully sent"
-    else:
+    except:
         return "Sending message was unsuccessful"
 
-send_email()
+print(send_email())
