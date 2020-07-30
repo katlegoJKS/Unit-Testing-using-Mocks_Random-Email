@@ -1,0 +1,6 @@
+funcsigs==1.0.2
+linecache2==1.0.0
+mock==3.0.5
+six==1.15.0
+traceback2==1.4.0
+unittest2==1.1.0
